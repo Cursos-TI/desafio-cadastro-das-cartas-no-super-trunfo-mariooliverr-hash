@@ -21,6 +21,8 @@ int main() {
     int PontosTuristicos2;
     float Densidadepopulacional2;
     float PIBpercapita2;
+    // variavel da escolha do jogador
+    int escolhadojogador;
 
     printf("Insira as informações da primeira CARTA :\n"); //Mensagem para o usuário, solicitando que insira os dados da primeira carta
     
@@ -105,38 +107,27 @@ int main() {
     printf("Densidade Populacional: %.2f hab/km²\n", Densidadepopulacional2);
     printf("PIB per Capita: %2.f Reais\n", PIBpercapita2);
 
-    /*
-    Usei o if para comparar os valores das cartas e descobrir qual é a maior em cada categoria.
-    Pois já tinha o conhecimento dessa sintaxe de if em C, e achei que seria interessante aplicar aqui.
-    */
-    printf("Comparações entre as cartas:\n\n"); //Exibindo o resultado das comparações entre as cartas
-    
-    if (printf("População: Carta 1 venceu(%d)\n",Populacao > Populacao2)){
-    } else (printf("População: Carta 2 venceu(%d)\n", Populacao2 > Populacao));{
-    }
-    
-    if (printf("Área: Carta 1 venceu(%d)\n", AreadaCidade > AreadaCidade2)){
-    } else (printf("Área: Carta 2 venceu(%d)\n", AreadaCidade2 > AreadaCidade));{
+    printf("___Comparações entre as cartas___\n\n"); //Exibindo o resultado das comparações entre as cartas
+
+    printf("Escolha um atributo:\n\n");
+
+    printf("1 - Populacao\n");
+    printf("2 - AreadaCidade\n");
+    printf("3 - Pib\n");
+    printf("5 - PontosTuristicos\n");
+    printf("6 - Densidadepopulacional\n");
+    printf("7- PIBpercapita\n");
+    scanf("%d", &escolhadojogador);
+
+    if  ((escolhadojogador == 1) && (Populacao > Populacao2)){
+        printf("Carta 1 venceu");
+    }else if ((escolhadojogador == 2) && (AreadaCidade > AreadaCidade2) || 
+            (escolhadojogador == 3) && (Pib > Pib2) || 
+            (escolhadojogador == 4) && (PontosTuristicos > PontosTuristicos2) || 
+            (escolhadojogador == 5) && (Densidadepopulacional < Densidadepopulacional2) ||
+            (escolhadojogador == 6) && (PIBpercapita > PIBpercapita2)){
+        printf("carta 1 venceu");
     }
 
-    if (printf("PIB: Carta 1 venceu(%d)\n", Pib > Pib2)){
-    } else (printf("PIB: Carta 2 venceu(%d)\n", Pib2 > Pib));{
-    }
-
-    if (printf("Números de pontos Turísticos: Carta 1 venceu(%d)\n", PontosTuristicos > PontosTuristicos2)){
-    } else (printf("Números de pontos Turísticos: Carta 2 venceu(%d)\n", PontosTuristicos2 > PontosTuristicos));{
-    }
-
-    if (printf("Densidade Populacional: Carta 1 venceu (%d)\n", Densidadepopulacional < Densidadepopulacional2)){
-    } else (printf("Densidade Populacional: Carta 2 venceu (%d)\n", Densidadepopulacional2 < Densidadepopulacional));{
-    }
-
-    if (printf("PIB per Capita: Carta 1 venceu (%d)\n", PIBpercapita > PIBpercapita2)){
-    } else (printf("PIB per Capita: Carta 2 venceu (%d)\n", PIBpercapita2 > PIBpercapita));{
-    }
-
-    if (printf ("Super Poder: Carta 1 venceu (%d)\n", superpoder1 > superpoder2)){
-    } else (printf("Super Poder: Carta 2 venceu (%d)\n", superpoder2 > superpoder1));{
-    }
     return 0;
 }
