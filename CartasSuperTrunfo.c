@@ -23,7 +23,7 @@ int main() {
     float PIBpercapita2;
     // variavel da escolha do jogador
     int escolhadojogador;
-
+    char menu;
     printf("Insira as informações da primeira CARTA :\n"); //Mensagem para o usuário, solicitando que insira os dados da primeira carta
     
     printf("CARTA 01\n"); //Sequência de perguntas para o usuário, a fim de coletar as informações da carta
@@ -94,8 +94,9 @@ int main() {
     printf("Números de pontos Turísticos: %d\n", PontosTuristicos); 
     printf("Densidade Populacional: %.2f hab/km²\n", Densidadepopulacional);
     printf("PIB per Capita: %f Reais\n", PIBpercapita);
+    printf("Superpoder da carta 1: %.2f\n\n", superpoder1);
 
-    printf ("CARTA 2:\n\n"); //Exibindo os dados da segunda carta
+    printf ("CARTA 2:\n\n"); //Exibindo os dados da segunda carta   
 
     printf("Estado: %c\n", Letra2);
     printf("Código: %s\n", CodigodaCarta2);
@@ -106,6 +107,7 @@ int main() {
     printf("Números de pontos Turísticos: %d\n", PontosTuristicos2);
     printf("Densidade Populacional: %.2f hab/km²\n", Densidadepopulacional2);
     printf("PIB per Capita: %2.f Reais\n", PIBpercapita2);
+    printf("Superpoder da carta 2: %.2f\n\n", superpoder2);
 
     printf("___Comparações entre as cartas___\n\n"); //Exibindo o resultado das comparações entre as cartas
 
@@ -119,15 +121,44 @@ int main() {
     printf("7- PIBpercapita\n");
     scanf("%d", &escolhadojogador);
 
-    if  ((escolhadojogador == 1) && (Populacao > Populacao2)){
-        printf("Carta 1 venceu");
-    }else if ((escolhadojogador == 2) && (AreadaCidade > AreadaCidade2) || 
-            (escolhadojogador == 3) && (Pib > Pib2) || 
-            (escolhadojogador == 4) && (PontosTuristicos > PontosTuristicos2) || 
-            (escolhadojogador == 5) && (Densidadepopulacional < Densidadepopulacional2) ||
-            (escolhadojogador == 6) && (PIBpercapita > PIBpercapita2)){
-        printf("carta 1 venceu");
+    switch (menu)
+    {
+    case 1:
+        escolhadojogador = (Populacao > Populacao2) ? 1 : 0;
+     break;
+    case 2:
+        escolhadojogador = (AreadaCidade > AreadaCidade2) ? 1 : 0;
+        break;  
+    case 3:
+        escolhadojogador = (Pib > Pib2) ? 1 : 0;
+        break;
+    case 4:
+        escolhadojogador = (PontosTuristicos > PontosTuristicos2) ? 1 : 0;
+        break;
+    case 5:
+        escolhadojogador = (Densidadepopulacional < Densidadepopulacional2) ? 1 : 0;
+        break;
+    case 6:
+        escolhadojogador = (PIBpercapita > PIBpercapita2) ? 1 : 0;
+        break;
+    default:
+        printf("Opção inválida!\n");
+        break;
     }
 
+    if ((escolhadojogador == 1) && (Populacao > Populacao2))
+    {
+        printf("Carta 1 venceu\n");
+    }else if ((escolhadojogador == 2) && (AreadaCidade > AreadaCidade2)) || 
+              (escolhadojogador == 3) && (Pib > Pib2) ||
+              (escolhadojogador == 4) && (PontosTuristicos > PontosTuristicos2) ||
+              (escolhadojogador == 5) && (Densidadepopulacional < Densidadepopulacional2) ||
+              (escolhadojogador == 6) && (PIBpercapita > PIBpercapita2))
+        printf("Carta 2 venceu\n");
+    } 
+
+
     return 0;
+    
 }
+
